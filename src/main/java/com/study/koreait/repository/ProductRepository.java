@@ -1,5 +1,6 @@
 package com.study.koreait.repository;
 
+import com.study.koreait.entity.Post;
 import com.study.koreait.entity.Product;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 public interface ProductRepository {
 
     // 전체 상품 조회
-    List<Product> FindAllProducts();
+    List<Product> findAllProducts();
 
     // 특정 id의 상품 조회
     Product findProductById(int id);
@@ -26,5 +27,6 @@ public interface ProductRepository {
 
     // 검색
     List<Product> searchProductByName(String name);
+
 
 }

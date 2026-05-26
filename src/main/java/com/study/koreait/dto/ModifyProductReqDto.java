@@ -13,7 +13,7 @@ public class ModifyProductReqDto {
     private int price;
 
     public Product toEntity(int id) {
-        return  Product.builder()
+        return Product.builder()
                 .productId(id)
                 .productName(productName)
                 .price(price)

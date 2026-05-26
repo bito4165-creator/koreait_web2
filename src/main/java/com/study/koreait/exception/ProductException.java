@@ -11,5 +11,4 @@ public class ProductException extends RuntimeException {
         super(message);
         this.statusCode = statusCode;
     }
-
 }

@@ -14,22 +14,22 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ProductService {
-    // 인터페이스 타입을 필드로 가진다.
-    // -> 의조선이 느슨하기 때문에 변경이 쉽다.
+    // 인터페이스 타입을 필드로 가진다
+    // -> 의존성이 느슨하기 때문에 변경이 쉽다
     private final ProductRepository repository;
 
     // 전체 상품리스트를 리턴 - dto
     public List<FindProductResDto> getProductList() {
-        return repository.FindAllProducts()
+        return repository.findAllProducts()
                 .stream()
                 // 매개변수가 호출만 될때 or 다음메서드에 전달만 될때
-                // 메서드참조
+                // 메서드참조라는 람다 생략식을 작성할 수 있음
                 .map(Product::toFindProductResDto)
                 .toList();
     }
 
     // 특정 상품을 리턴 - dto
-    // 메서드마다 dto를 작성해줘야함.
+    // 메서드마다 dto를 작성해줘야함
     public FindProductResDto getProductById(int id) {
         return repository.findProductById(id).toFindProductResDto();
     }
@@ -53,4 +53,5 @@ public class ProductService {
                 .map(Product::toFindProductResDto)
                 .toList();
     }
+
 }

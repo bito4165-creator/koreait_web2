@@ -1,6 +1,5 @@
 package com.study.koreait.repository;
 
-
 import com.study.koreait.entity.Post;
 
 import java.util.List;
@@ -13,5 +12,6 @@ public interface PostRepository {
 
     int insertPost(Post post);
 
-    int deleteById(int id);
+    int deletePostById(int id);
+
 }

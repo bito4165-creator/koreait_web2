@@ -1,17 +1,25 @@
-
+# day2_update_delete
 -- update
-update post
-set title = '첫번째 작성글'
-where post_id = 1;
--- update 그리고 delete는 where절 반드시 작성해야한다.
+update
+	post
+set
+	title = '첫번째 작성글'
+where
+	post_id = 1;
+-- update 그리고 delete는 where절 반드시 작성해야한다!
 
-delete from post
-where post_id = 1;
+delete from
+	post
+where
+	post_id = 1;
 
-delete from post
-where content is null;
-
+delete from
+	post
+where
+	content is null;
+    
 -- delete from post; (x)
+# bit.ly/koreait-web
 
 CREATE TABLE restaurants (
     id               INT          PRIMARY KEY AUTO_INCREMENT,
@@ -74,27 +82,50 @@ INSERT INTO restaurants (name, category, address, rating) VALUES
 ('대구 뭉티기', '한식', '대구시 중구 동성로 19-2', 4.5),
 ('오키나와 소키소바', '일식', '서울시 영등포구 당산동 72-6', 4.0);
 
--- 평점 top 5 가게를 조회해주세요
+
+-- 평점 top 5 가게를 조회해 주세요
 select * from restaurants order by rating desc limit 5;
--- id가 1번인 레스토랑의 평점을 0.2 더해주세요.
-update restaurants
-set rating = rating + 0.2
-where id = 1;
--- 부산에 있는 일식집 중 평점 top3 조회해 주세요.
-select * 
-from restaurants
-where address like '%부산%' and category = '일식'
-order by rating desc
+-- id가 1번인 레스토랑의 평점을 0.2 더해주세요
+update 
+	restaurants
+set
+	rating = rating + 0.2
+where
+	id = 1;
+
+-- 부산에 있는 일식 집 중 평점 top 3 조회해 주세요
+select
+	*
+from
+	restaurants
+where
+	address like '%부산%' and category = '일식'
+order by
+	rating desc
 limit 3;
--- 서울에 있는 중식집 중 평점 내림차순으로 6~10위 조회해 주세요.
-select *
-from restraurants
-where address like '%서울%' and category = '중식'
-order by ratring desc
+    
+
+-- 서울에 있는 중식 집 중 평점 내림차순으로 6~10위 조회해 주세요
+select
+	*
+from
+	restaurants
+where
+	address like '%서울%' and category = '중식'
+order by
+	rating desc
 limit 5 offset 5;
+
 -- 분식이 아니고, 평점이 4.0 이상인 가게
-select *
-from restraurants
-where category != '분식' and rating >= 4.0;
--- 평점이 4.0 미만인 음식점들은 삭제해주세요.
-delete from restaurants where rating <= 4.0;
+select
+	*
+from
+	restaurants
+where
+	category != '분식' and rating >= 4.0;
+
+-- 평점이 4.0 미만인 음식점들은 삭제해 주세요
+delete from restaurants where rating < 4.0;
+
+
+

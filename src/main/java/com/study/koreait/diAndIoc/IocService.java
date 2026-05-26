@@ -7,7 +7,7 @@ import java.util.List;
 
 @Service
 public class IocService {
-    // @Autowired - 호출될때 의존성 주입
+    // @Autowired - 호출될때 의존성주입
     private IocRepository repository;
 
     // IocRepository repo = new IocRepository();
@@ -20,8 +20,8 @@ public class IocService {
         A는 B를 필드로 가짐
         B도 A를 필드로 가짐
         A를 만드려고하니 B가 필요 -> B생성
-        B를 만드려고하니 A가 필요 -> A생성 ...반복
-     */
+        B를 만드려고하니 A가 필요 -> A생성 ... 반복
+    */
 
     public int getTotal() {
         int total = 0;
@@ -35,4 +35,6 @@ public class IocService {
         List<Integer> scores = repository.getScores();
         return (double) getTotal() / scores.size();
     }
+
+
 }

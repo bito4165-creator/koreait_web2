@@ -31,6 +31,9 @@ public class PostService {
     }
 
     public int removePost(int id) {
-        return repository.deleteById(id);
+        return repository.deletePostById(id);
     }
+
+
+
 }

@@ -15,25 +15,27 @@ public class PostController {
     private final PostService service;
 
     @GetMapping("/all")
-    public ResponseEntity<?> getPost() {
+    public ResponseEntity<?> getAllPost() {
         return ResponseEntity.ok(service.getAllPost());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getPost(@PathVariable int id) {
+    public ResponseEntity<?> getPostById(@PathVariable int id) {
         return ResponseEntity.ok(service.getPostById(id));
     }
 
     @PostMapping("/add")
     public ResponseEntity<?> addPost(@RequestBody @Valid AddPostReqDto dto) {
         int successCount = service.addPost(dto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(successCount + "건 추가완료");
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(successCount + "건 추가완료");
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletePost(@PathVariable int id) {
         int successCount = service.removePost(id);
-        return ResponseEntity.ok(successCount + "건 삭제완료");
+        return ResponseEntity.ok(successCount + "건 삭제 완료");
     }
 
 }

@@ -2,7 +2,6 @@ package com.study.koreait.controller;
 
 import com.study.koreait.dto.AddProductReqDto;
 import com.study.koreait.dto.ModifyProductReqDto;
-import com.study.koreait.entity.Product;
 import com.study.koreait.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -28,8 +27,8 @@ public class ProductController {
     @PostMapping("/add")
     public ResponseEntity<?> postProduct(@RequestBody AddProductReqDto dto) {
         int successCount = service.addProduct(dto);
-        return ResponseEntity.
-                status(HttpStatus.CREATED)
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
                 .body(successCount + "건 등록 성공");
     }
 
@@ -40,7 +39,7 @@ public class ProductController {
         return ResponseEntity.ok(successCount + "건 삭제 성공");
     }
 
-    // RESTful -> id는 path로 지정
+    // RESTful -> id는 path로 지정,
     // 구체적인 내용은 body
     @PutMapping("/{id}")
     public ResponseEntity<?> putProduct(
@@ -55,9 +54,8 @@ public class ProductController {
     @GetMapping("/search")
     public ResponseEntity<?> getProductByName(@RequestParam("name") String name) {
         return ResponseEntity.ok(service.getSearchProducts(name));
-
     }
 
-    // github.com/elikese
+
 
 }
