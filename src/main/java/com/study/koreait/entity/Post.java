@@ -1,5 +1,6 @@
 package com.study.koreait.entity;
 
+import com.study.koreait.dto.FindPostResDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,4 +22,11 @@ public class Post {
     // Post:Comments는 1:n관계
     // 그래프? post.getComments()
     private List<Comments> comments;
+
+    public FindPostResDto toFindPostResDto() {
+        return FindPostResDto.builder()
+                .title(title)
+                .content(content)
+                .build();
+    }
 }
